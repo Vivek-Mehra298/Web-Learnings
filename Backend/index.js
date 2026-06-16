@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 
 import router from './routes/user.js';
 
@@ -22,6 +23,9 @@ mongoose.connect('mongodb://localhost:27017/Re-develop').then(()=>{
 }).catch((error)=>{
     console.error('MongoDB connection error:',error);
 })
+
+// Cros Origin Resource Sharing - It's a security feature implemented by browsers to restrict web pages from making requests to a different domain than the one that served the web page. It allows servers to specify who can access their resources and how they can be accessed.
+app.use(cors());
 
 //Routes
 app.use('/api',router);
