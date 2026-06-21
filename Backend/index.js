@@ -13,7 +13,7 @@ app.get('/',(req,res)=>{
     res.send('Hey there! Welcome to the backend server.');
 });
 
-//Middleware
+//Middleware - Middleware 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
