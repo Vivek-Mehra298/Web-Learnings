@@ -23,7 +23,16 @@ router.post('/user',async(req,res)=>{
     catch(error){
         res.status(500).json({message:"Unknown error occured while creating user"});
     }
+})
 
+router.get('/user/:id',async(req,res)=>{
+    try{
+        const user=await User.findById(req.params.id);
+        res.status(200).json(user);
+    }
+    catch(error){
+        res.status(500).json({message:"Unkowon error occurend while fetching the user"});
+    }
 })
 
 export default router;
