@@ -48,4 +48,14 @@ router.delete('/user/:id',async(req,res)=>{
     }
 })
 
+router.patch('/user/:id',async(req,res)=>{
+    try{
+        const user=await User.findByIdAndUpdate(req.params.id,req.body,{new:true});;
+        res.status(200).json(user , {message:"User updated successfully"});
+    }
+    catch(error){
+        res.status(500).json({message:"Unknown error occured while updating the user"});
+    }
+})
+
 export default router;
